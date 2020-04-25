@@ -25,15 +25,15 @@ class Song extends React.Component{
         //});
         return (
             <div className="Song">
-                <div style={{width : '100%'}}>
-                    <img alt="Slow internet Connection" src={this.props.data.artwork_url} style ={{padding:'3px',width:'100%',borderRadius:'5px'}}/>
+                <div style={{width : '100%',margin:'auto'}}>
+                    <img alt="Slow internet Connection" src={this.props.data.artwork_url} style ={{margin:'auto',width:'100%',borderRadius:'5px'}}/>
                 </div>
 
-                <div style={{overflow:'hidden',textOverflow: "...."}}>
-                    <div style={{textAlign:'left'}}>
+                <div style={{}}>
+                    <div style={{textAlign:'left',whiteSpace:'nowrap',overflow:'hidden',textOverflow: "...."}}>
                         <p>{"Artist : "+this.props.data.user.username}</p>
                     </div>
-                    <div style={{textAlign:'left',width:'130px',whiteSpace:'nowrap'}}>
+                    <div style={{textAlign:'left',width:'130px',whiteSpace:'nowrap',overflow:'hidden',textOverflow: "...."}}>
                         <p className="Font" style={{fontSize:'13px'}}>{this.props.data.title}</p>
                     </div>
                 </div>

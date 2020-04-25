@@ -1,0 +1,28 @@
+.Playbar{
+    display : flex;
+    flex-wrap : wrap;
+    flex-direction : row;
+    background-color : black;
+    height : 50px;
+    position : fixed; 
+    bottom:0;
+    left : 0;
+    width:100%;
+}
+.Song-Name{
+    color:#fff;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    align-self:center;
+    background-color:red;
+    width:0;
+    height:0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.Play-Pause{
+    margin:auto;
+}
+

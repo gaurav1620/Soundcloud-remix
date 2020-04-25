@@ -3,6 +3,7 @@ import Song from './Song.js'
 import Grid from '@material-ui/core/Grid';
 import './Playlist.css'
 import './Indicator.css'
+import './styles/Playbar.css'
 
 import SoundCloudAudio from 'soundcloud-audio';
 
@@ -69,15 +70,24 @@ class Playlist extends React.Component{
 
     toggleMusic(){
         console.log("called toggle playing : "+this.state.currentPLaying)
-        this.setState(
-            {currentPLaying: this.state.currentPLaying === -1?
-                Math.floor(Math.random()*(this.state.data.length-2)):-1,
-            }
-        )
-        this.updatePlayer();
+        if(this.state.currentPLaying === -1){
+            scPlayer.pause();
+            this.setState({currentPLaying:-1});
+        }else{
+            this.setState({currentPLaying:1});
+            console.log(this.state.currentPLaying);
+            console.log(this.state.data);
+            scPlayer.play({
+                streamUrl : this.state.data[this.state.currentPLaying].uri +'/stream',
+            })
+        }
+        //this.updatePlayer();
     }
 
     render(){
+
+        this.updatePlayer();
+
         if(this.state.isLoading){
             return (
                 <div style={{paddingTop:'200px'}}>
@@ -101,17 +111,15 @@ class Playlist extends React.Component{
                     )}
                 </Grid>
 
-                <div style={{display:'flex', flexDirection:'row',backgroundColor:'black',
-                            height:'50px',
-                            position:'fixed',bottom:'0',left:'0',width:'100%'}}>
+                <div className='Playbar'>
 
-                    <div style={{paddingLeft:'20px',color:'#fff',justifyContent:'flex-start',width:'30%',
-                                alignSelf:'center'}}>
+                    <div className='Song-Name'>
                         {this.state.currentPLaying === -1 ? "":
                         this.state.data[this.state.currentPLaying].title}
                     </div>
-                    <div style={{alignSelf:'center',justifyContent:'center',marginLeft:'20%'}}
-                        onClick={()=>this.toggleMusic()}>
+                    <div className="Play-Pause"
+                        onClick={()=> this.setState({currentPLaying : this.state.currentPLaying === -1?
+                                            Math.floor(Math.random()*this.state.data.length -1):-1})}>
                         {this.state.currentPLaying !== -1?
                             <img alt="Play" src="pause-xxl.png" height='25px' width='25px'/>   
                            :<img alt="Play" src="play-xxl.png" height='25px' width='25px'/>   
