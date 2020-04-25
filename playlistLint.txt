@@ -1,0 +1,1 @@
+https://api.soundcloud.com/users/185676792/favorites\?client_id\=a0f84e7c2d612d845125fb5eebff5b37\&limit\=60\&linked_partitioning\=1

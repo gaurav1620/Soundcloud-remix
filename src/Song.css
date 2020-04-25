@@ -1,0 +1,14 @@
+.Song {
+    text-align : center;
+    
+    font-size:10px;
+    padding:5px;
+    margin : 30px;
+    width : 150px;
+
+    height : 280px;
+    border-radius : 10px;
+    background-color:#222;
+    color : #fff;
+    box-shadow: 2px 2px 4px #000;
+}
