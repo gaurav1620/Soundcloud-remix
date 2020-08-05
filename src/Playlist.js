@@ -24,8 +24,16 @@ class Playlist extends React.Component{
         fetch(this.props.link)
             .then(res => res.json())
             .then(result=>{
+
+                let i;
+                let data = [...result.collection];
+                data.splice(12,1);
+                console.log(data);
+                for(i = 0;i < data.length ;i++){
+                    
+                }
                 this.setState({
-                    data : [...result.collection],
+                    data : data,
                     isLoading : false,
                 })
             })
